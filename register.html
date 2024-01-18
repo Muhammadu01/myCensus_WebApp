@@ -50,7 +50,7 @@
     <a href="admin_panel.html" target="_blank">Back to admin panel</a>
     <h1>COUNTRY CENSUS FORM</h1>
 
-    <form id="register">
+    <form id="register" action="close.html" method="post">
         <label for="username">Name:</label>
         <input type="text" id="username" name="username" required><br><br>
 
@@ -83,24 +83,14 @@
 
     <script>
         document.getElementById('register').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the form from submitting
+            // Prevent the form from submitting normally
+            event.preventDefault();
 
             // Get form data
             var formData = new FormData(document.getElementById('register'));
 
-            // Send data to the server using AJAX
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'read_users.php', true);
-            xhr.onload = function () {
-                if (xhr.status == 200) {
-                    alert(xhr.responseText);
-                    // Optionally, reset the form after successful submission
-                    document.getElementById('register').reset();
-                } else {
-                    alert('Error: ' + xhr.statusText);
-                }
-            };
-            xhr.send(formData);
+            // Redirect to close.html
+            window.location.href = 'close.html';
         });
     </script>
 
