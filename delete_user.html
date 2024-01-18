@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Census Web App - Delete User</title>
+    <style>
+        body {
+            background-color: #6a7f94;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        form {
+            max-width: 500px;
+            margin: auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px; 
+        }
+
+         input[type="submit"] {
+             background-color: red; 
+             color: white; 
+             padding: 10px 20px; 
+             border: none; 
+             cursor: pointer;
+         }
+         
+         input[type="submit"]:hover {
+             background-color: #a04545;
+         }
+    </style>
+</head>
+<body>
+    <a href="admin_panel.html" target="_blank">Back to admin panel</a>
+
+    <h1>Delete User</h1>
+
+    <form id="deleteUserForm">
+        <label for="userID">User ID:</label>
+        <input type="number" id="userID" name="userID" required><br><br>
+
+        <input type="submit" value="Delete">
+    </form>  
+
+    <script>
+        document.getElementById('deleteUserForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Get form data
+            var formData = new FormData(document.getElementById('deleteUserForm'));
+
+            // Send data to the server using AJAX
+            fetch('delete_user.php', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+            })
+            .catch(error => console.error('Error deleting user:', error));
+        });
+    </script>
+
+</body>
+</html>

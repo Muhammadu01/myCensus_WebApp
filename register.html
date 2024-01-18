@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Census Web App - User Registration</title>
+    <style>
+        /* Your existing CSS styles */
+        body {
+            background-color: #6a7f94;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        form {
+            max-width: 500px;
+            margin: auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px; 
+        }
+
+         input[type="submit"] {
+             background-color:green; 
+             color:white; 
+             padding:10px 20px; 
+             border:none; 
+             cursor:pointer
+         }
+         
+         input[type="submit"]:hover {background-color:#45a049}
+    </style>
+</head>
+<body>
+    <a href="admin_panel.html" target="_blank">Back to admin panel</a>
+    <h1>COUNTRY CENSUS FORM</h1>
+
+    <form id="register">
+        <label for="username">Name:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="addr">Address: </label>
+        <input type="text" id="addr" name="address" required><br><br>
+
+        <label for="dob">Date of Birth: </label>
+        <input type="date" id="dob" name="dateOfBirth" required><br><br>
+
+        <label for="pob">Place of Birth: </label>
+        <input type="text" id="pob" name="placeOfBirth" required><br><br>
+
+        <label for="census1">Number of Children Alive: </label>
+        <input type="number" id="census1" name="numberOfChildren" required><br><br>
+
+        <label for="male">Male: </label>
+        <input type="number" id="male" name="numberOf_MaleChildren" required><br><br>
+
+        <label for="female">Female: </label>
+        <input type="number" id="female" name="numberOf_FemaleChildren" required><br><br>
+
+        <label for="census2">Number of Children Above 21: </label>
+        <input type="number" id="census2" name="numberOfChildren_above21" required><br><br>
+
+        <label for="reg">Region: </label>
+        <input type="text" id="reg" name="region" required><br><br>
+
+        <input type="submit" value="Register">
+    </form>  
+
+    <script>
+        document.getElementById('register').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Get form data
+            var formData = new FormData(document.getElementById('register'));
+
+            // Send data to the server using AJAX
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'read_users.php', true);
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    alert(xhr.responseText);
+                    // Optionally, reset the form after successful submission
+                    document.getElementById('register').reset();
+                } else {
+                    alert('Error: ' + xhr.statusText);
+                }
+            };
+            xhr.send(formData);
+        });
+    </script>
+
+</body>
+</html>

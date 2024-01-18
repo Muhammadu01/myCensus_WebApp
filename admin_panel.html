@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Census Web App - Admin Panel</title>
+    <style>
+        body {
+            background-color: #6a7f94;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        nav {
+            margin-bottom: 30px;
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 0 20px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #4CAF50;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #45a049;
+        }
+
+        .back-button {
+            background-color: #1f2937;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background-color: #334155;
+        }
+
+        .register-button {
+            display: inline-block;
+            margin: 0 20px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #4CAF50;
+            border-radius: 5px;
+        }
+
+        .register-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Admin Panel</h1>
+
+    <nav>
+        <a href="read_users.html" target="_blank">View User Records</a>
+        <a href="update_user.html" target="_blank">Update User</a>
+        <a href="delete_user.html" target="_blank">Delete User</a>
+    </nav>
+
+    <a href="register.html" target="_blank" class="register-button">Register</a>
+
+    <button class="back-button" onclick="goBack()">Back</button>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+</body>
+</html>
