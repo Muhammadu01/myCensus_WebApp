@@ -10,21 +10,22 @@
             color: white;
             font-family: Arial, sans-serif;
             text-align: center;
-            padding: 50px;
+            padding: 20px;
+            margin: 0;
         }
 
         h1 {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         nav {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         nav a {
-            display: inline-block;
-            margin: 0 20px;
-            padding: 10px 20px;
+            display: block;
+            margin-bottom: 10px;
+            padding: 10px;
             text-decoration: none;
             color: white;
             background-color: #4CAF50;
@@ -35,31 +36,34 @@
             background-color: #45a049;
         }
 
-        .back-button {
-            background-color: #1f2937;
+        .register-button,
+        .logout-button {
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            margin: 0 auto;
+            padding: 10px;
+            text-decoration: none;
             color: white;
-            padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
 
-        .back-button:hover {
-            background-color: #334155;
-        }
-
-        .register-button {
-            display: inline-block;
-            margin: 0 20px;
-            padding: 10px 20px;
-            text-decoration: none;
-            color: white;
-            background-color: #4CAF50;
-            border-radius: 5px;
-        }
-
-        .register-button:hover {
+        .register-button:hover,
+        .logout-button:hover {
             background-color: #45a049;
+        }
+
+        @media screen and (min-width: 768px) {
+            body {
+                padding: 50px;
+            }
+
+            .register-button,
+            .logout-button {
+                width: auto;
+            }
         }
     </style>
 </head>
@@ -68,14 +72,12 @@
     <h1>Admin Panel</h1>
 
     <nav>
+        <a href="register.html" target="_blank" class="register-button">Register</a>
         <a href="read_users.html" target="_blank">View User Records</a>
         <a href="update_user.html" target="_blank">Update User</a>
         <a href="delete_user.html" target="_blank">Delete User</a>
+        <a href="login.html" class="logout-button">Log Out</a>
     </nav>
-
-    <a href="register.html" target="_blank" class="register-button">Register</a>
-
-    <button class="back-button" onclick="goBack()">Back</button>
 
     <script>
         function goBack() {
